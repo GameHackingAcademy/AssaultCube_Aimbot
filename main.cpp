@@ -11,7 +11,7 @@ struct Player {
 	char unknown2[0x30];
 	float yaw;
 	float pitch;
-	char unkwown3[0x2f0];
+	char unknown3[0x2f0];
 	int dead;
 };
 
