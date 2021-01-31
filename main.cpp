@@ -33,9 +33,9 @@ void injected_thread() {
 		float closest_pitch = 0.0f;
 
 		for (int i = 0; i < *current_players; i++) {
-			DWORD* enemy_offset = (DWORD*)(0x50F4F8);
-			DWORD* enemy_offset2 = (DWORD*)(*enemy_offset + (i*4));
-			Player* enemy = (Player*)(*enemy_offset2);
+			DWORD* enemy_list = (DWORD*)(0x50F4F8);
+			DWORD* enemy_offset = (DWORD*)(*enemy_list + (i*4));
+			Player* enemy = (Player*)(*enemy_offset);
 
 			if (player != NULL && enemy != NULL && !enemy->dead) {
 
