@@ -75,10 +75,14 @@ void injected_thread() {
 
 					// Calculate the yaw
 					float azimuth_xy = atan2f(abspos_y, abspos_x);
+					// Convert to degrees
 					float yaw = (float)(azimuth_xy * (180.0 / M_PI));
+					// Add 90 since the game assumes direct north is 90 degrees
 					closest_yaw = yaw + 90;
 
 					// Calculate the pitch
+					// Since Z values are so limited, pick the larger between x and y to ensure that we 
+					// don't look straight at the air when close to an enemy
 					if (abspos_y < 0) {
 						abspos_y *= -1;
 					}
@@ -89,6 +93,7 @@ void injected_thread() {
 						abspos_y = abspos_x;
 					}
 					float azimuth_z = atan2f(abspos_z, abspos_y);
+					// Covert the value to degrees
 					closest_pitch = (float)(azimuth_z * (180.0 / M_PI));
 				}
 			}
